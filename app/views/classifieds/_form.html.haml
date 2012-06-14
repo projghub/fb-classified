@@ -9,5 +9,11 @@
   .field
     = f.label :name
     = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :publish
+    = f.check_box :publish
   .actions
     = f.submit 'Save'

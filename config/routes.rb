@@ -1,6 +1,8 @@
 FbBgbng::Application.routes.draw do
   resources :classifieds
 
+  match '/facebook/login' => 'facebook#login', :as => :facebook_login
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
