@@ -14,9 +14,19 @@
 ActiveRecord::Schema.define(:version => 20120614044430) do
 
   create_table "classifieds", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "description"
+    t.boolean  "publish"
+    t.datetime "expires_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.integer  "facebook_user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

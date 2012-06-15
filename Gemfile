@@ -8,8 +8,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'haml'
-gem 'haml-rails'
+#gem 'haml'
+#gem 'haml-rails'
 gem 'koala'
 
 # Gems used only for assets and not required

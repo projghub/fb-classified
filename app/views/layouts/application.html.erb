@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FbBgbng</title>
+  <title></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= facebook_login_button('large') %>
-  <h1> FbBgbng</h1>
+  <%= render 'shared/flash_messages' unless flash.blank? %>
+  
+  <%= facebook_login_button('small') %>
   <div id="fb-root"></div>
   <div class="content">
     <ul>

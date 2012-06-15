@@ -11,11 +11,6 @@ class FacebookController < ApplicationController
     @feeds = current_user.feeds
   end
 
-  def thanks
-    @customer = params[:customer]
-  end
-
   def login
   end
-
 end

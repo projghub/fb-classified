@@ -1,4 +1,6 @@
 class ClassifiedsController < ApplicationController
+  before_filter :require_login, :except => [:index, :login]
+
   def index
     @classifieds = Classified.all
   end
@@ -11,12 +13,11 @@ class ClassifiedsController < ApplicationController
     @classified = Classified.new
   end
 
-  def edit
-    @classified = Classified.find(params[:id])
-  end
-
   def create
-    @classified = Classified.new(params[:classified])
+    @classified = current_user.classifieds.build(params[:classified])
+
+    #Set expires_at to 30 days from now
+    @classified.expires_at = Time.now.advance(:months => 1)
 
     if @classified.save
       redirect_to @classified, notice: 'Classified was successfully created.'
@@ -25,20 +26,19 @@ class ClassifiedsController < ApplicationController
     end
   end
 
+  def edit
+    @classified = Classified.find(params[:id])
+    can_modify?(@classified)
+  end
+
   def update
     @classified = Classified.find(params[:id])
+    can_modify?(@classified)
 
     if @classified.update_attributes(params[:classified])
       redirect_to @classified, notice: 'Classified was successfully updated.'
     else
       render action: "edit"
     end
-  end
-
-  def destroy
-    @classified = Classified.find(params[:id])
-    @classified.destroy
-
-    redirect_to classifieds_url, notice: 'Classified was successfully deleted.'
   end
 end
