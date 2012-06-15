@@ -1,0 +1,6 @@
+<p>Please choose a category:</p>
+<ul>
+<%= Category.find_each do |category| %>
+  <li><%= link_to category.name, category_path(:id => category.id, :region_id => @region.id) %></li>
+<% end %>
+</ul>

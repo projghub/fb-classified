@@ -1,0 +1,6 @@
+<p>Please choose a region:</p>
+<ul>
+<%= Region.find_each do |region| %>
+  <li><%= link_to region.name, region_path(region.id) %></li>
+<% end %>
+</ul>

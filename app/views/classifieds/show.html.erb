@@ -1,0 +1,7 @@
+<p>Name: <%= @classified.name %></p>
+<p>Description: <%= @classified.description %></p>
+<p>Publish: <%= @classified.publish %></p>
+
+<%= link_to 'Edit', edit_classified_path(@classified) %>
+|
+<%= link_to 'Back', classifieds_path %>

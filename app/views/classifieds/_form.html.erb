@@ -1,0 +1,17 @@
+<%= form_for @classified do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :publish %>
+    <%= f.check_box :publish %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
