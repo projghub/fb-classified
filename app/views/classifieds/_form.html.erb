@@ -8,6 +8,14 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <%= f.label :region %>
+    <%= f.collection_select(:id, Region.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_select(:id, Category.all, :id, :name) %>
+  </div>
+  <div class="field">
     <%= f.label :publish %>
     <%= f.check_box :publish %>
   </div>
