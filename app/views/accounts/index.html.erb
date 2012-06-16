@@ -1,0 +1,19 @@
+<h2>My Classifieds</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Published</th>
+    <th>Region</th>
+    <th>Category</th>
+    <th></th>
+  </tr>
+  <% @classifieds.each do |classified| %>
+  <tr>
+    <td><%= link_to classified.name, classified %></td>
+    <td><%= (classified.publish) ? 'Yes' : 'No' %></td>
+    <td><%= classified.region.name %></td>
+    <td><%= classified.category.name %></td>
+    <td><%= (link_to 'Edit', edit_classified_path(classified)) if current_user.id == classified.user_id %></td>
+  </tr>
+  <% end %>
+</table>

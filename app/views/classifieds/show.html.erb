@@ -1,7 +1,5 @@
-<p>Name: <%= @classified.name %></p>
-<p>Description: <%= @classified.description %></p>
-<p>Publish: <%= @classified.publish %></p>
-
-<%= link_to 'Edit', edit_classified_path(@classified) %>
-|
-<%= link_to 'Back', classifieds_path %>
+<p><strong>Name</strong><br /><%= @classified.name %></p>
+<p><strong>Description</strong><br /><%= @classified.description %></p>
+<p><strong>Region</strong><br /><%= @classified.region.name %></p>
+<p><strong>Category</strong><br /><%= @classified.category.name %></p>
+<p><strong>Posted</strong><br /><%= @classified.created_at.strftime("%b %d %Y") %></p>

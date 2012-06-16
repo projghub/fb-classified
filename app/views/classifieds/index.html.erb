@@ -1,17 +1,1 @@
-<h1> Listing classifieds</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @classifieds.each do |classified| %>
-  <tr>
-    <td><%= classified.name %>
-    <td><%= link_to 'Show', classified %>
-    <td><%= link_to 'Edit', edit_classified_path(classified) %>
-  </tr>
-  <% end %>
-</table>
-<%= link_to 'New Classified', new_classified_path %>

@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20120615040610) do
 
   create_table "classifieds", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "region_id"
+    t.integer  "category_id"
     t.string   "name"
     t.text     "description"
     t.boolean  "publish"

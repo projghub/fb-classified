@@ -1,25 +1,36 @@
-<%= form_for @classified do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<%= form_for @classified, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :region %>
-    <%= f.collection_select(:id, Region.all, :id, :name) %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :size => '50x10', :class => 'textarea' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.collection_select(:id, Category.all, :id, :name) %>
+  <div class="control-group">
+    <%= f.label :region, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:region_id, Region.all, :id, :name) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :publish %>
-    <%= f.check_box :publish %>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit 'Save' %>
+  <div class="control-group">
+    <%= f.label :'Publish?', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :publish %><em>Would you like others to see this ad?</em>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Submit', :class => 'btn btn-success btn-large' %>
+    <%= link_to 'Cancel', root_path, :class => 'btn' %>
   </div>
 <% end %>

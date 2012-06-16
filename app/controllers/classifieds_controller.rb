@@ -2,7 +2,6 @@ class ClassifiedsController < ApplicationController
   before_filter :require_login, :except => [:index, :login]
 
   def index
-    @classifieds = Classified.all
   end
 
   def show

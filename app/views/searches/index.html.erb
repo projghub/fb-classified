@@ -1,4 +1,3 @@
-<h2><%= "#{@region.name} . #{@category.name}" %></h2>
 <table class="table">
   <tr>
     <th>Posted</th>
@@ -7,7 +6,7 @@
   <% @classifieds.each do |classified| %>
   <tr>
     <td><%= classified.created_at.strftime("%b %d") %></td>
-    <td><%= link_to classified.name, classified %></td>
+    <td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
   </tr>
   <% end %>
 </table>

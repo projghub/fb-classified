@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'bootstrap-sass'
 
-gem 'pg'
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'sqlite3'
