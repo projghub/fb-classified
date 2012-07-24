@@ -1,15 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  before_filter :facebook_auth
+  
   helper_method :logged_in?, :current_user
 
   def facebook_auth
-    @oauth = Koala::Facebook::OAuth.new(FACEBOOK_APP_ID, FACEBOOK_SECRET_KEY)
+    @oauth = Koala::Facebook::OAuth.new(FACEBOOK_APP_ID, FACEBOOK_SECRET_KEY)    
     if fb_user_info = @oauth.get_user_info_from_cookie(request.cookies)
       @graph = Koala::Facebook::GraphAPI.new(fb_user_info['access_token'])
       @user = User.find_or_create_by_facebook_user_id({ facebook_user_id: fb_user_info['user_id'] })
-    end
+    end    
   end
 
   def logged_in?
@@ -17,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @user
+    @user ||= User.find(session[:user_id]) unless session[:user_id].blank? 
   end
 
   def current_graph
@@ -25,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless logged_in?
+    if current_user.blank?
       redirect_to facebook_login_path
     end
   end

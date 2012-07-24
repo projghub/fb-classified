@@ -13,7 +13,10 @@ end
 
 #gem 'haml'
 #gem 'haml-rails'
+
 gem 'koala'
+gem 'oauth2', '~> 0.8.0'
+gem 'debugger'
 
 # Gems used only for assets and not required
 # in production environments by default.

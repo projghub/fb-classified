@@ -1,6 +1,7 @@
 development:
-  app_id: 322306551187835
-  secret_key: 71148c6d3b93639c30406d31f53a6137
+  app_id: 233252060063922
+  secret_key: 237708c85246ac44db7547b44aa03c21
+  callback_url: http://localhost:3000/facebook_callback
 test:
   app_id: 430129973678691
   secret_key: 20379e3340667dea1dbf8c7c5545896c

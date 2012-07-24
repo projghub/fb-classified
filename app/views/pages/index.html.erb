@@ -1,3 +1,11 @@
+<% content_for :javascripts do %>
+<script>
+	if(window.opener) {
+		window.opener.location.reload(true);
+		window.close()
+	}
+</script>
+<% end %>
 <h2>Browse Regions</h2>
 <div class="row-fluid">
   <div class="span4">

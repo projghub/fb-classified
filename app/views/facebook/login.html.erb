@@ -1,2 +1,10 @@
+<% content_for :javascripts do %>
+<script>
+	if(window.opener) {
+		window.opener.location.reload(true);
+		window.close()
+	}	
+</script>
+<% end %>
 <h2>Please login</h2>
 <p>Please login to facebook to get started.</p>

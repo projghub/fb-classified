@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120615040610) do
     t.integer  "region_id"
     t.integer  "category_id"
     t.string   "name"
-    t.text     "description"
+    t.string   "description"
     t.boolean  "publish"
     t.datetime "expires_at"
     t.datetime "created_at",  :null => false
