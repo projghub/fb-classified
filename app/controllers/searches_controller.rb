@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   LIMIT = 10
   def index
-    @classifieds = Classified.search params[:query], :page => params[:page], :per_page => LIMIT
+    puts "========================", params[:region_id]
+    @classifieds = Classified.search params[:query], :with => {:region_id => params[:region_id]}
   end
 end

@@ -21,6 +21,7 @@
     <div class="span4 search">
       <%= form_tag '/search', :class => 'form-search', :id => "classifieds_search", :method => :get do %>
         <%= text_field_tag :query, nil, :value => params[:query], :class => 'input-small' %>
+        <%= hidden_field_tag :region_id, nil, :value => params[:id].blank? ? params[:region_id] : params[:id], :class => 'input-small' %>
         <%= submit_tag :Search, :name => nil, :class => 'btn' %>
       <% end %>
     </div>
