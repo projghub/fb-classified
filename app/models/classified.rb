@@ -5,11 +5,12 @@ class Classified < ActiveRecord::Base
   belongs_to :region
   belongs_to :category
 
-  def self.search(query)
-    if query
-      where('name LIKE ?', "%#{query}%")
-    else
-      scoped
-    end
-  end
+  define_index do
+    indexes name, :sortable => true
+    indexes description
+    indexes category(:name), :as => :category
+
+    has category_id, created_at, updated_at
+    set_property :delta => true
+  end  
 end

@@ -15,3 +15,8 @@
 /tmp
 #/config/facebook.yml
 .project
+
+# Ignore the Sphinx
+config/development.sphinx.conf
+db/sphinx/
+log/searchd.development.pid
