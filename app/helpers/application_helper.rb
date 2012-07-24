@@ -1,7 +1,7 @@
 module ApplicationHelper
   def facebook_login_button(size='small')
     content_tag("fb:login-button", nil , {
-      :scope => 'user_likes, friends_likes',
+      #:scope => 'user_likes, friends_likes',
       :id => "fb_login",
       :autologoutlink => 'true',
       :size => size,
