@@ -1,5 +1,6 @@
-FbBgbng::Application.routes.draw do
-  resources :classifieds
+FbBgbng::Application.routes.draw do  
+
+  resources :classifieds, :profile
 
   match '/facebook/login' => 'facebook#login', :as => :facebook_login
   match '/regions/:id' => 'regions#index', :as => :region

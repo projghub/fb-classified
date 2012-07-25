@@ -1,21 +1,21 @@
 <% unless @classifieds.blank? %>
-<table class="table">
-  <tr>
-    <th>Posted</th>
-    <th>Name</th>
-  </tr>
-  <% @classifieds.each do |classified| %>
-  <tr>
-    <td><%= classified.created_at.strftime("%b %d") %></td>
-    <td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
-  </tr>
-  <% end %>
-  <tr>
-  	<td colspan="2">
-  		<%= will_paginate @classifieds %>
-  	</td>
-  </tr>  
-</table>
+	<table class="table">
+	  <tr>
+	    <th>Posted</th>
+	    <th>Name</th>
+	  </tr>
+	  <% @classifieds.each do |classified| %>
+	  <tr>
+	    <td><%= classified.created_at.strftime("%b %d") %></td>
+	    <td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
+	  </tr>
+	  <% end %>
+	  <tr>
+	  	<td colspan="2">
+	  		<%= will_paginate @classifieds %>
+	  	</td>
+	  </tr>  
+	</table>
 <% else %>
 	<h2>No Result</h2>
 <% end %>

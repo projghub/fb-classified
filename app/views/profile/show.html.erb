@@ -1,0 +1,19 @@
+<p><strong>Name</strong><br /><%= @user.name %></p>
+<p><strong>First Name</strong><br /><%= @user.first_name %></p>
+<p><strong>Last Name</strong><br /><%= @user.last_name %></p>
+<p><strong>Gender</strong><br /><%= @user.gender %></p>
+<p>
+ <strong>ads posted by <%= @user.name %></strong><br/>
+ <table class="table">
+  <tr>
+    <th>Posted</th>
+    <th>Name</th>
+  </tr>
+  <% @user.classifieds.each do |classified| %>
+  <tr>
+    <td><%= classified.created_at.strftime("%b %d") %></td>
+    <td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
+  </tr>
+  <% end %>  
+ </table>	
+</p>

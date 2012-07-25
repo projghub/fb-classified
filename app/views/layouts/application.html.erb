@@ -32,7 +32,13 @@
       <%= yield %>
     </div>
     <div class="span3 navigation">
-      <div class="account"><%= link_to 'Home', root_path %> | <%= link_to 'My Classifieds', account_path %></div>
+      <div class="account">
+      	<%= link_to 'Home', root_path %> 
+      	<% unless current_user.blank? %>
+      	| <%= link_to 'My Classifieds', account_path %>
+        | <%= link_to 'Profile', profile_path(current_user) %>
+      	<% end %>
+      </div>
       <iframe src="https://www.facebook.com/plugins/like.php?href=http://0.0.0.0:6665/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;appId="
         scrolling="no" frameborder="0"
         style="border:none; width:75px; height:25px; overflow:hidden;" allowTransparency="true">
