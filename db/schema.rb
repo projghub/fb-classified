@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725084424) do
+ActiveRecord::Schema.define(:version => 20120725135931) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(:version => 20120725084424) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "facebook_user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "facebook_user_id", :limit => 8
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "email"
     t.string   "name"
     t.string   "first_name"

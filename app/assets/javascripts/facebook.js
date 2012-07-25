@@ -6,7 +6,13 @@ $(document).ready(function() {
 		signinWin.focus();
 		return false;
 	});
-
+	
+	$("#facebook_logout").live("click", function() {
+	  FB.logout(function(response) {
+        window.location = '/logout';        	
+      });
+      return false;
+	})
 })
 function CheckLoginStatus() {
 	if (signinWin.closed) 
