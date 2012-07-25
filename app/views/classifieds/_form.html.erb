@@ -24,6 +24,18 @@
     </div>
   </div>
   <div class="control-group">
+  	<%= f.label :photos, :class => 'control-label' %>
+  	<div class="controls">
+  	  <%= f.fields_for :photos do |photo_fields| %>
+	    <% if photo_fields.object.new_record? %>
+		<p>
+		 <%= photo_fields.file_field :photo %>
+		</p>
+		<% end %>	
+	<% end %>
+  	</div>
+  </div>
+  <div class="control-group">
     <%= f.label :'Publish?', :class => 'control-label' %>
     <div class="controls">
       <%= f.check_box :publish %>

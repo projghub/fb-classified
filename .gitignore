@@ -20,3 +20,6 @@
 config/development.sphinx.conf
 db/sphinx/
 log/searchd.development.pid
+
+# Ignore Paperclip Images 
+public/system/

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725074150) do
+ActiveRecord::Schema.define(:version => 20120725084424) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(:version => 20120725074150) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "photos", :force => true do |t|
+    t.string   "photoable_type"
+    t.integer  "photoable_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "regions", :force => true do |t|
     t.string   "name"

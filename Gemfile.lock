@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.0.4.0)
     builder (3.0.0)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -83,6 +84,12 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    paperclip (3.1.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.14.0)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -152,6 +159,7 @@ DEPENDENCIES
   jquery-rails
   koala
   oauth2 (~> 0.8.0)
+  paperclip (~> 3.1.4)
   pg
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

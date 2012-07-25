@@ -2,4 +2,10 @@
 <p><strong>Description</strong><br /><%= @classified.description %></p>
 <p><strong>Region</strong><br /><%= @classified.region.name %></p>
 <p><strong>Category</strong><br /><%= @classified.category.name %></p>
+<p>
+ <strong>Photos</strong><br/>
+ <% @classified.photos.each do |p| %>
+ 	<%= image_tag p.photo.url(:thumb) %>
+ <% end %>	
+</p>
 <p><strong>Posted</strong><br /><%= @classified.created_at.strftime("%b %d %Y") %></p>

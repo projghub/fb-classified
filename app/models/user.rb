@@ -6,12 +6,11 @@ class User < ActiveRecord::Base
   class << self
     def find_or_create_user(user_data)
       user = find_by_facebook_user_id(user_data['id'])
-      if user
+     if user
        user
      else
-       user = User.new(:email => user_data['email'], :facebook_user_id => user_data['id'], :name => user_data['name'],
-                       :first_name => user_data['first_name'], :last_name => user_data['last_name'], :gender => user_data['gender'])
-       user.save
+       user = User.create(:email => user_data['email'], :facebook_user_id => user_data['id'], :name => user_data['name'],
+                       :first_name => user_data['first_name'], :last_name => user_data['last_name'], :gender => user_data['gender'])       
      end
      return user
     end

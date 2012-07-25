@@ -10,6 +10,7 @@ class ClassifiedsController < ApplicationController
 
   def new
     @classified = Classified.new
+    5.times { @classified.photos.build } 
   end
 
   def create
@@ -27,6 +28,7 @@ class ClassifiedsController < ApplicationController
 
   def edit
     @classified = Classified.find(params[:id])
+    5.times { @classified.photos.build }
     can_modify?(@classified)
   end
 

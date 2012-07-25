@@ -21,6 +21,7 @@ gem 'ts-delayed-delta', '~> 1.1.3'
 gem 'delayed_job_active_record'
 gem "will_paginate", "~> 3.0.3"
 gem 'pg'
+gem "paperclip", "~> 3.1.4"
 gem 'debugger'
 
 # Gems used only for assets and not required
