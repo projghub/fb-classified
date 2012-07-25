@@ -1,7 +1,21 @@
 class User < ActiveRecord::Base
-  attr_accessible :facebook_user_id, :graph
+  attr_accessible :facebook_user_id, :graph, :email, :name, :first_name, :last_name, :gender
 
   has_many :classifieds
+  
+  class << self
+    def find_or_create_user(user_data)
+      user = find_by_facebook_user_id(user_data['id'])
+      if user
+       user
+     else
+       user = User.new(:email => user_data['email'], :facebook_user_id => user_data['id'], :name => user_data['name'],
+                       :first_name => user_data['first_name'], :last_name => user_data['last_name'], :gender => user_data['gender'])
+       user.save
+     end
+     return user
+    end
+  end
 
 #  def likes
 #    @likes ||= graph.get_connections(facebook_user_id, 'likes')

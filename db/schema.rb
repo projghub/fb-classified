@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724121321) do
+ActiveRecord::Schema.define(:version => 20120725074150) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(:version => 20120724121321) do
     t.integer  "facebook_user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "email"
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
   end
 
 end

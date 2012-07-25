@@ -14,14 +14,11 @@ class FacebookController < ApplicationController
     token = get_access_token(params[:code], params[:signed_request])
     if token
       me = FacebookApi.get_me(token)
-      user = User.find_or_create_by_facebook_user_id(me['id'])
+      user = User.find_or_create_user(me)
       session[:token] = token
       session[:user_id] = user.id
       flash[:notice] = "Signed in successfully."
       redirect_to root_path
-    else      
-       # invalid access token
-       redirect_to login_path
     end
   end
   

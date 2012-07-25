@@ -41,7 +41,7 @@
       <% if current_user.blank? %>
       	<%= link_to image_tag("facebook-login.jpeg"), FacebookApi.facebook_oauth_url, :id => "facebook_login" %>
       <% else %>
-      	Welcome <%= FacebookApi.get_me(session[:token])['name'] %>, <%= link_to image_tag("fb-logout.gif"), destroy_user_session_path %>
+      	Welcome <%= current_user.name %>, <%= link_to image_tag("fb-logout.gif"), destroy_user_session_path %>
       <% end %>
     </div>
   </div>
