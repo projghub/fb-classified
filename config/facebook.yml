@@ -8,3 +8,4 @@ test:
 production:
   app_id: 430129973678691
   secret_key: 20379e3340667dea1dbf8c7c5545896c
+  callback_url: http://fb-classified.herokuapp.com/facebook_callback
