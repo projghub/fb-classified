@@ -64,10 +64,5 @@ FbBgbng::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  Paperclip::Attachment.default_options.merge!({
-      storage:  :s3,
-      s3_credentials: { :access_key_id => S3_KEY, :secret_access_key => S3_SECRET_KEY },
-      bucket: S3_BUCKET,
-      path: "/:class/:id/:style/:filename"
-    })
+  
 end
