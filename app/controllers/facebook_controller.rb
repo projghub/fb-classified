@@ -1,5 +1,4 @@
 class FacebookController < ApplicationController
-  helper_method :logged_in?, :current_user
   
   def index
     @likes_by_category = current_user.likes_by_category
@@ -15,16 +14,16 @@ class FacebookController < ApplicationController
     if token
       me = FacebookApi.get_me(token)
       user = User.find_or_create_user(me)
-      session[:token] = token
-      session[:user_id] = user.id
-      flash[:notice] = "Signed in successfully."
+      session[:token] = token     
+      sign_in(:user, user)
+      flash.keep[:notice] = "Signed in successfully."
       redirect_to root_path
     end
   end
   
   def logout
     session[:token] = nil
-    session[:user_id] = nil
+    sign_out current_user
     flash[:notice] = "Signed out successfully."
     redirect_to root_path
   end
