@@ -1,5 +1,5 @@
 class Classified < ActiveRecord::Base
-  attr_accessible :name, :description, :publish, :region_id, :category_id, :photos_attributes
+  attr_accessible :name, :description, :publish, :region_id, :category_id, :photos_attributes, :user_id
   
   belongs_to :user
   belongs_to :region
