@@ -171,34 +171,14 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model User do
-  #   # Found associations:
-  #     configure :roles, :has_and_belongs_to_many_association 
-  #     configure :classifieds, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :facebook_user_id, :integer 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :email, :string 
-  #     configure :name, :string 
-  #     configure :first_name, :string 
-  #     configure :last_name, :string 
-  #     configure :gender, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  config.model User do
+    field :name
+    field :email
+    field :first_name
+    field :last_name
+    field :password    
+    field :roles
+    field :ban
+    
+  end
 end

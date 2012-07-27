@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	rolify
+	has_many :classifieds
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -7,10 +8,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :graph, :name, :first_name, :last_name, :gender
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :graph, :name, :first_name, :last_name, :gender, :ban, :role_ids
 
 
-  has_many :classifieds
+  
   
   class << self
     def find_or_create_user(user_data)

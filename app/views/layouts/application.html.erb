@@ -33,9 +33,12 @@
     <div class="span3 navigation">
       <div class="account">
       	<%= link_to 'Home', root_path %> 
-      	<% unless current_user.blank? %>
-      	| <%= link_to 'My Classifieds', account_path %>
-        | <%= link_to 'Profile', profile_path(current_user) %>
+      	<% if user_signed_in? %>
+	      	| <%= link_to 'My Classifieds', account_path %>
+	        | <%= link_to 'Profile', profile_path(current_user) %>
+	        <% if current_user.has_role? :admin %>
+	        | <%= link_to 'Admin', '/admin' %> 
+	      	<% end %>
       	<% end %>
       </div>
       <iframe src="https://www.facebook.com/plugins/like.php?href=http://0.0.0.0:6665/&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;appId="
@@ -43,10 +46,10 @@
         style="border:none; width:75px; height:25px; overflow:hidden;" allowTransparency="true">
       </iframe><br />
       <%#= facebook_login_button('small') %>
-      <% if current_user.blank? %>
-      	<%= link_to image_tag("facebook-login.jpeg"), FacebookApi.facebook_oauth_url, :id => "facebook_login" %>
+      <% if user_signed_in? %>
+      	Welcome <%= current_user.name %>, <%= link_to image_tag("fb-logout.gif"), "#", :id => "facebook_logout" %>      	
       <% else %>
-      	Welcome <%= current_user.name %>, <%= link_to image_tag("fb-logout.gif"), "#", :id => "facebook_logout" %>
+      	<%= link_to image_tag("facebook-login.jpeg"), FacebookApi.facebook_oauth_url, :id => "facebook_login" %>
       <% end %>
     </div>
   </div>

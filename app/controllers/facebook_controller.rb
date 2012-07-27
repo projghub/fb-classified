@@ -14,10 +14,15 @@ class FacebookController < ApplicationController
     if token
       me = FacebookApi.get_me(token)
       user = User.find_or_create_user(me)
-      session[:token] = token     
-      sign_in(:user, user)
-      flash.keep[:notice] = "Signed in successfully."
-      redirect_to root_path
+      if user and  user.ban
+        flash.keep[:notice] = "Your account has been disabled."
+        redirect_to root_path
+      elsif user
+        session[:token] = token     
+        sign_in(:user, user)
+        flash.keep[:notice] = "Signed in successfully."
+        redirect_to root_path      
+      end      
     end
   end
   

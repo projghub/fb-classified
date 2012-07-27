@@ -25,7 +25,7 @@ gem "paperclip", "~> 3.1.4"
 gem "aws-sdk", "~> 1.5.7"
 gem "devise", "~> 2.1.2"
 gem "rolify"
-gem "rails_admin", "~> 0.0.5"
+gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git', :ref => 'f223184dbe8efc39891e6be5a28ed7e4b0710e80'
 gem "cancan"
 
 # Gems used only for assets and not required
