@@ -184,4 +184,8 @@ RailsAdmin.config do |config|
   config.model Classified do
     exclude_fields :delta, :expires_at
   end 
+  
+  config.model Category do
+    field :name
+  end
 end
