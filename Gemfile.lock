@@ -228,6 +228,7 @@ DEPENDENCIES
   devise (~> 2.1.2)
   flying-sphinx (~> 0.7.0)
   jquery-rails
+  kaminari
   koala
   oauth2 (~> 0.8.0)
   paperclip (~> 3.1.4)
