@@ -5,6 +5,7 @@ class SearchesController < ApplicationController
       @classifieds = Classified.search params[:query], :page => params[:page], :with => {:region_id => params[:region_id]}, :per_page => LIMIT
     else
       @classifieds = Classified.search params[:query], :page => params[:page], :per_page => LIMIT
-    end
+    end    
+    @classifieds
   end
 end

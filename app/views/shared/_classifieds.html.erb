@@ -1,0 +1,30 @@
+<table class="table">
+	  <tr>
+	  	<th></th>
+	  	<th>Title</th>
+	  	<th>Posted By</th>
+	  	<th>Posted</th>	  	
+	  </tr>
+	  <% classifieds.each do |classified| %>
+	  <tr>
+	  	<td>
+	    	<% unless classified.photos.blank? %>
+	    		<%= image_tag classified.photos.first.photo.url(:thumb) %>
+	    	<% else %>
+	    		<%= image_tag "no_image.jpg", :size => "100x100" %>
+	    	<% end %>
+	   	</td>
+	   	<td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
+	  	<td><%= link_to classified.user.name, profile_path(classified.user.id) %> </td>
+	    <td><%= classified.created_at.strftime("%b %d") %></td>
+	  </tr>
+	  <% end %>
+	  <% is_paginate = classifieds.total_pages rescue false %>
+	  <% if is_paginate %>
+	  <tr>
+	  	<td colspan="2">
+	  		<%= paginate classifieds %>
+	  	</td>
+	  </tr>  
+	  <% end %>
+	</table>

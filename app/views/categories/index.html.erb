@@ -1,13 +1,2 @@
 <h2><%= "#{@region.name} . #{@category.name}" %></h2>
-<table class="table">
-  <tr>
-    <th>Posted</th>
-    <th>Name</th>
-  </tr>
-  <% @classifieds.each do |classified| %>
-  <tr>
-    <td><%= classified.created_at.strftime("%b %d") %></td>
-    <td><%= link_to classified.name, classified %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render "/shared/classifieds", :classifieds => @classifieds %>

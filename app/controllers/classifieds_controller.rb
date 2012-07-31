@@ -1,5 +1,5 @@
 class ClassifiedsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :login]
+  before_filter :authenticate_user!, :except => [:index, :login, :show]
 
   def index
   end

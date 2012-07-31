@@ -4,16 +4,5 @@
 <p><strong>Gender</strong><br /><%= @user.gender %></p>
 <p>
  <strong>The ads posted by <%= @user.name %></strong><br/>
- <table class="table">
-  <tr>
-    <th>Posted</th>
-    <th>Name</th>
-  </tr>
-  <% @user.classifieds.each do |classified| %>
-  <tr>
-    <td><%= classified.created_at.strftime("%b %d") %></td>
-    <td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
-  </tr>
-  <% end %>  
- </table>	
+ <%= render "/shared/classifieds", :classifieds => @user.classifieds %> 
 </p>
