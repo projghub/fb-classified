@@ -14,7 +14,7 @@ class Classified < ActiveRecord::Base
     indexes description
     
     has category_id,region_id, created_at, updated_at    
-    set_property :delta => (Rails.env.production? ? ::FlyingSphinx::ResqueDelta : true)        
+    set_property :delta => (Rails.env.production? ? ThinkingSphinx::Deltas::ResqueDelta : true)        
   end  
   
   
