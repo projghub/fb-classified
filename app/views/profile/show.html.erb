@@ -4,5 +4,5 @@
 <p><strong>Gender</strong><br /><%= @user.gender %></p>
 <p>
  <strong>The ads posted by <%= @user.name %></strong><br/>
- <%= render "/shared/classifieds", :classifieds => @user.classifieds %> 
+ <%= render "/shared/profile_classifieds", :classifieds => @user.classifieds %> 
 </p>

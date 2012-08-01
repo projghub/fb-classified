@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727141746) do
+ActiveRecord::Schema.define(:version => 20120801085358) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.integer  "activityable_id"
+    t.string   "activityable_type"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -28,9 +37,10 @@ ActiveRecord::Schema.define(:version => 20120727141746) do
     t.string   "description"
     t.boolean  "publish"
     t.datetime "expires_at"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "delta",       :default => true, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "delta",       :default => true,  :null => false
+    t.boolean  "sold",        :default => false, :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|

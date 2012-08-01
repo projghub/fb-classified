@@ -6,6 +6,10 @@ class ClassifiedsController < ApplicationController
 
   def show
     @classified = Classified.find(params[:id])
+    # save activity
+    if current_user and current_user.id != @classified.user.id  
+      @classified.activities.create( :user_id => current_user.id, :type => "show_classified" )
+    end  
   end
 
   def new
@@ -37,7 +41,10 @@ class ClassifiedsController < ApplicationController
     can_modify?(@classified)
 
     if @classified.update_attributes(params[:classified])
-      redirect_to @classified, notice: 'Classified was successfully updated.'
+      respond_to do |format|
+        format.html {redirect_to @classified, notice: 'Classified was successfully updated.'}
+        format.js { head :ok }
+      end
     else
       render action: "edit"
     end

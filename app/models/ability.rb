@@ -7,6 +7,13 @@ class Ability
       can :manage, :all
       can :access, :rails_admin   # grant access to rails_admin
       can :dashboard              # grant access to the dashboard
-    end   
+    elsif user
+      can :manage, Classified do |classified|
+        classified and classified.user_id == user.id
+      end
+      can :manage, User do |u|
+        user and u.id == user.id
+      end
+    end
   end
 end

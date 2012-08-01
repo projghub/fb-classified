@@ -3,8 +3,11 @@
 	  	<th></th>
 	  	<th>Title</th>
 	  	<th>Posted By</th>
-	  	<th>Posted</th>
-	  	<th></th>
+	  	<th>Posted</th>	
+	  	<th>View count</th>
+	  	<% if can? :manager, @user %>	  	  
+	  		<th>Sold</th>	
+	  	<% end %>
 	  </tr>
 	  <% classifieds.each do |classified| %>
 	  <tr>
@@ -18,11 +21,14 @@
 	   	<td><%= link_to classified.name, classified %> <em>- <%= classified.category.name %></em></td>
 	  	<td><%= link_to classified.user.name, profile_path(classified.user.id) %> </td>
 	    <td><%= classified.created_at.strftime("%b %d") %></td>
+	    <td><%= classified.activities.activity_classified_view.size %></td>
+	    <% if can? :manager, classified %>
 	    <td>
-	    	<% if classified.sold %>
-	    		<%= image_tag "sold.png" %>
+	    	<%= form_for classified, :remote => true do |c| %>
+	    		<%= c.check_box :sold, :class => 'sold_class' %>
 	    	<% end %>
 	    </td>
+	    <% end %>
 	  </tr>
 	  <% end %>
 	  <% is_paginate = classifieds.total_pages rescue false %>

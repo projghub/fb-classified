@@ -9,9 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :graph, :name, :first_name, :last_name, :gender, :ban, :role_ids
-
-
-  
+  has_many :activities
   
   class << self
     def find_or_create_user(user_data)
