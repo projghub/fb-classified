@@ -14,11 +14,11 @@ class Classified < ActiveRecord::Base
     indexes description
     
     has category_id,region_id, created_at, updated_at
-    if Rails.env.development?
-      set_property :delta => true
-    elsif Rails.env.production?
+    # if Rails.env.development?
+      # set_property :delta => true
+    # elsif Rails.env.production?
       set_property :delta => FlyingSphinx::DelayedDelta
-    end    
+    # end    
   end  
   
   
