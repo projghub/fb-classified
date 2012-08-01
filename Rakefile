@@ -4,4 +4,5 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'thinking_sphinx/deltas/delayed_delta/tasks'
+require 'thinking_sphinx/deltas/resque_delta/tasks'
 FbBgbng::Application.load_tasks
