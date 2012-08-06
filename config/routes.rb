@@ -2,8 +2,9 @@ FbBgbng::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => 'sessions'}
 
+ 
   resources :classifieds, :profile
 
   match '/facebook/login' => 'facebook#login', :as => :facebook_login
