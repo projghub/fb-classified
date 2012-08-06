@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801085358) do
+ActiveRecord::Schema.define(:version => 20120806135438) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
-    t.string   "type"
+    t.string   "a_type"
     t.integer  "activityable_id"
     t.string   "activityable_type"
     t.datetime "created_at",        :null => false
