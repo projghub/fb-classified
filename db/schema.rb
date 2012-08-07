@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20120801085358) do
     t.integer  "region_id"
     t.integer  "category_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "publish"
     t.datetime "expires_at"
     t.datetime "created_at",                     :null => false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20120801085358) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
