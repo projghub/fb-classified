@@ -8,7 +8,7 @@ class ClassifiedsController < ApplicationController
     @classified = Classified.find(params[:id])
     # save activity
     if current_user and current_user.id != @classified.user.id  
-      @classified.activities.create( :user_id => current_user.id, :type => "show_classified" )
+      @classified.activities.create( :user_id => current_user.id, :a_type => "show_classified" )
     end  
   end
 

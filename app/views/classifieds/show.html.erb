@@ -9,3 +9,21 @@
  <% end %>	
 </p>
 <p><strong>Posted</strong><br /><%= @classified.created_at.strftime("%b %d %Y") %></p>
+
+<% if current_user and current_user.id == @classified.user.id %>
+	<strong>The users visited item</strong>
+	<table class="table">
+	  <tr>	 
+	  	<th>Name</th>
+	  	<th>Date</th>
+	  </tr>
+	  <% @classified.activity_classified(current_user).each do |activity| %>
+	  <tr>
+	  	<td>
+	    	<%= activity.user.name %>
+	   	</td>
+	   	<td><%= activity.created_at.strftime("%b %d") %></td>
+	  </tr>
+	  <% end %>	  
+</table>	
+<% end %>
